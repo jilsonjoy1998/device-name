@@ -13,6 +13,12 @@
     "directories": {
       "buildResources": "build"
     },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": true,
+      "allowElevation": true,
+      "deleteAppDataOnUninstall": true
+    },
     "win": {
       "target": "nsis",
       "icon": "icon.ico"

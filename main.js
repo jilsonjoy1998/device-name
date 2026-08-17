@@ -66,10 +66,13 @@ api.listen(PORT, "127.0.0.1", () => {
 
 app.whenReady().then(() => {
   // Start automatically when Windows starts
-  app.setLoginItemSettings({
-    openAtLogin: true,
-    path: app.getPath("exe"),
-  });
+  if (process.platform === "win32") {
+    app.setLoginItemSettings({
+      openAtLogin: true,
+      path: app.getPath("exe"),
+      args: ["--autorun"], // Optional: helps identify autorun instances
+    });
+  }
 
   createWindow();
 });
